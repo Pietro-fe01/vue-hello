@@ -14,13 +14,32 @@ createApp({
             title: 'Hello World! -- By Vue.js',
             image: `img/Vue-js-logo.png`,
             logo: 'logo-img',
-            firstName: 'Pietro',
-            lastName: 'Fecarotta',
+            firstName: '',
+            lastName: '',
+            centering: 'd-flex',
+            fullName(){
+                return this.firstName + " " + this.lastName;
+            },
+            lista: [
+                'pane',
+                'Biscotti',
+                'Latte',
+                'acqua',
+            ],
+            addItem: '',
         };
     },
     methods: {
-        fullName(){
-            return this.firstName + " " + this.lastName;
+        printText: () => {
+            alert("Ciao")
+        },
+        addItemToList: function(){
+            if(!this.lista.includes(this.addItem)){
+                return this.lista.push(this.addItem)
+            }
+        },
+        removeFromList: function(index){
+            this.lista.splice(index, 1);
         }
     }
 }).mount('#app');

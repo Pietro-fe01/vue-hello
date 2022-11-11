@@ -13,12 +13,32 @@
 <body>
     <!-- Elemento dentro il quale agisce VueJS -->
     <div id="app">
-        <div>
-            <h1>{{ title }}</h1>
+        <div :class="centering">
             <img v-bind:src="image" :alt="logo">
+            <h1>{{ title }}</h1>
         </div>
-        <div>
-            <p>{{fullName()}}</p>
+        <div class="sec">
+            <div>Nome</div>
+            <input v-model="firstName">
+            <div>Cognome</div>
+            <input v-model="lastName">
+        </div>
+        <div class="sec">
+            <div>Output:</div>
+            <p id="full-name">{{ fullName() }}</p>
+        </div>
+        <div class="sec">
+            <button @click="printText">Cliccami</button>
+            <button v-on:click="printText">Cliccami</button>
+        </div>
+        <div class="sec">
+            <ul>
+                <input v-model="addItem">
+                <button @click="addItemToList">Aggiungi alla lista</button>
+                <li v-for="(item, index) in lista" class="list-item" v-on:click="removeFromList" :data-li=index>
+                    {{ item }}
+                </li>
+            </ul>
         </div>
     </div>
     <!-- /Elemento dentro il quale agisce VueJS -->
