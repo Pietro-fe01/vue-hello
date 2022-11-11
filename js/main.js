@@ -9,8 +9,9 @@ const { createApp } = Vue;
 createApp({
     data(){
         return{
-            message: 'Hello World! -- By Vue.js',
+            title: 'Hello World! -- By Vue.js',
             image: `img/Vue-js-logo.png`,
+            logo: 'logo-img',
         };
     }
 }).mount('#app');
